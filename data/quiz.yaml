@@ -14,3 +14,17 @@
   answer3:      The Konohana bridge.
   answer4:      The Yeoungjong Grand Bridge.
   correctanswr: 1
+-
+  question:     Is the Perl module "CGI" included in the standard library?
+  answer1:      Yes
+  answer2:      No
+  answer3:
+  answer4:
+  correctanswr: 2
+-
+  question:     How and when was the William D. Wood Park (In Oakland, CA) created?
+  answer1:      By demolishing an abandoned city building, 1984.
+  answer2:      By draining an old lake in 1942.
+  answer3:      By demolition of an interchange in 1967.
+  answer4:      Accedentaly, by erosion in the 50s, dedicated in 1976.
+  correctanswr: 4
