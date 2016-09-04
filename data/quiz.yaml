@@ -1,0 +1,16 @@
+# Example question file.
+# This is a random trivia quiz.
+-
+  question:     This is a sample question!
+  answer1:      This is an answer!
+  answer2:      This is the correct answer!
+  answer3:      This is an answer!
+  answer4:      This is an answer!
+  correctanswr: 2
+-
+  question:     What is the longest Self-Anchored Suspension bridge in the world?
+  answer1:      The new Eastern Span of the Bay Bridge.
+  answer2:      The Hustonville Bridge.
+  answer3:      The Konohana bridge.
+  answer4:      The Yeoungjong Grand Bridge.
+  correctanswr: 1
