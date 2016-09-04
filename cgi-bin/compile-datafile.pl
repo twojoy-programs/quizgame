@@ -40,3 +40,5 @@ use JSON;
 use File::Spec::Functions qw(rel2abs);
 use File::Basename;
 use Digest::SHA;
+
+my $config = dirname(rel2abs($0)) . "/../data/"
