@@ -34,3 +34,9 @@ use strict;
 use warnings;
 use utf8;
 use v5.14;
+
+use YAML;
+use JSON;
+use File::Spec::Functions qw(rel2abs);
+use File::Basename;
+use Digest::SHA;
