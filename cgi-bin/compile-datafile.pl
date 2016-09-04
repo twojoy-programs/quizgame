@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Compiles human-readable datafile to 3 kEy-value store files: 1 for the
+# Compiles human-readable datafile to 3 key-value store files: 1 for the
 # questions, 1 for the answers, and 1 for the correct answer.
 '
 Copyright (c) 2016, twojoy-programs
