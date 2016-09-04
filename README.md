@@ -7,6 +7,9 @@ Perl Dependencies:
 ------------------
 * `File::ReadBackwards`
 * `CGI`
+* `Digest::SHA`
+* `YAML`
+* `JSON`
 
 Javascript Dependencies:
 ------------------------
