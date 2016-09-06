@@ -57,3 +57,4 @@ open($confighandle, "<", $configfile);
   $configfilecontents = <$confighandle>;
 }
 my $configs = Load($configfilecontents);
+close($confighandle);
