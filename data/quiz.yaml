@@ -2,29 +2,29 @@
 # This is a random trivia quiz.
 -
   question:     This is a sample question!
-  answer1:      This is an answer!
-  answer2:      This is the correct answer!
+  answer0:      This is an answer!
+  answer1:      This is the correct answer!
+  answer2:      This is an answer!
   answer3:      This is an answer!
-  answer4:      This is an answer!
-  correctanswr: 2
--
-  question:     What is the longest Self-Anchored Suspension bridge in the world?
-  answer1:      The new Eastern Span of the Bay Bridge.
-  answer2:      The Hustonville Bridge.
-  answer3:      The Konohana bridge.
-  answer4:      The Yeoungjong Grand Bridge.
   correctanswr: 1
 -
+  question:     What is the longest Self-Anchored Suspension bridge in the world?
+  answer0:      The new Eastern Span of the Bay Bridge.
+  answer1:      The Hustonville Bridge.
+  answer2:      The Konohana bridge.
+  answer3:      The Yeoungjong Grand Bridge.
+  correctanswr: 0
+-
   question:     Is the Perl module "CGI" included in the standard library?
-  answer1:      Yes
-  answer2:      No
+  answer0:      Yes
+  answer1:      No
+  answer2:
   answer3:
-  answer4:
-  correctanswr: 2
+  correctanswr: 1
 -
   question:     How and when was the William D. Wood Park (In Oakland, CA) created?
-  answer1:      By demolishing an abandoned city building, 1984.
-  answer2:      By draining an old lake in 1942.
-  answer3:      By demolition of an interchange in 1967.
-  answer4:      Accedentaly, by erosion in the 50s, dedicated in 1976.
-  correctanswr: 4
+  answer0:      By demolishing an abandoned city building, 1984.
+  answer1:      By draining an old lake in 1942.
+  answer2:      By demolition of an interchange in 1967.
+  answer3:      Accedentaly, by erosion in the 50s, dedicated in 1976.
+  correctanswr: 3
