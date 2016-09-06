@@ -46,6 +46,9 @@ my $configfile = dirname(rel2abs($0)) . "/../data/config.yaml";
 my $json = JSON->new->allow_nonref;
 my $confighandle;
 my $configfilecontents;
+my @questionsexport;
+my @answersexport;
+my @correctanswersexport;
 
 # Opening and parsing configfile.
 open($confighandle, "<", $configfile);
