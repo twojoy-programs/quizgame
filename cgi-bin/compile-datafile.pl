@@ -41,4 +41,16 @@ use File::Spec::Functions qw(rel2abs);
 use File::Basename;
 use Digest::SHA;
 
-my $config = dirname(rel2abs($0)) . "/../data/"
+my $configfile = dirname(rel2abs($0)) . "/../data/config.yaml";
+
+my $json = JSON->new->allow_nonref;
+my $confighandle;
+my $configfilecontents;
+
+# Opening and parsing configfile.
+open($confighandle, "<", $configfile);
+{ # Slurp data
+  local $/;
+  $configfilecontents = <$confighandle>;
+}
+my $configs = Load($configfilecontents);
