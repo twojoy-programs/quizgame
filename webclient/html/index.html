@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<title>Quiz Game!</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
+		<script src="../javascript/quizgame.js"/>
 		<script>
 			$(document).ready(function() {
 					$("#test").click(function(){
@@ -17,7 +18,6 @@
 											error: function() {alert("did not work");}
 							});
 					})
-					$
 			})
 			</script>
 
@@ -36,6 +36,7 @@
 		The following div will be updated after the call:<br />
 		<div id="mybox"></div>
 		<button id="test">Testing</button>
+		<button id="printConfig">Print Config</button>
 
 	</body>
 
