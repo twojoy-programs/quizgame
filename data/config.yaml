@@ -1,4 +1,1 @@
 quizfilepath: ../data/quiz.yaml
-questionfilepath: ../data/questions.json
-answerfilepath: ../data/answers.json
-correctanswerfilepath: ../data/correctanswers.json
