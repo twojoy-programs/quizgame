@@ -40,12 +40,19 @@ use YAML;
 use JSON;
 use File::Spec::Functions qw(rel2abs);
 use File::Basename;
-use CGI;
 
-my $configs   = {key => "value"};
 my $j         = JSON->new->utf8(1)->pretty(1);
+my $configfh;
+my $rawconfig;
+my $configfile = dirname(rel2abs($0)) . "/../data/config.yaml";
+
+open($configfh, "<", $configfile);
+{ # Slurp data
+    local $/;
+    $rawconfig = <$configfh>;
+}
+my $configs   = Load($rawconfig); # Outputs a hashref.
 my $finaljson = $j->encode($configs);
 
 print "Content-Type: text/plain;charset=UTF-8\n\n";
 print "$finaljson";
-exit(0);
