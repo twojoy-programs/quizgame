@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Testing ajax</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<head>
+		<title>Quiz Game!</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+					$("#test").click(function(){
+							var ID = 100;
+							$.ajax({
+											type: 'POST',
+											url: '../../cgi-bin/get-configs.pl',
+											data: { 'data_id': ID },
+											success: function(res) {
+												$("#mybox").html(res);
+											},
+											error: function() {alert("did not work");}
+							});
+					})
+					$
+			})
+			</script>
 
+		<style type="text/css">
+			 #mybox {
+				 width: 300px;
+				 height: 250px;
+				 border: 1px solid #999;
+			 }
+		</style>
 
-    <script>
+	</head>
 
-            $(document).ready(function() {
+	<body>
 
-                $("#test").click(function(){
-                    var ID = 100;
-                    $.ajax({
-                            type: 'POST',
-                            url: '../../cgi-bin/get-configs.pl',
-                            data: { 'data_id': ID },
-                            success: function(res) {
-                              alert("your ID is: " + res);
+		The following div will be updated after the call:<br />
+		<div id="mybox"></div>
+		<button id="test">Testing</button>
 
-                            },
-                            error: function() {alert("did not work");}
-                    });
-                })
+	</body>
 
-            })
-
-
-
-        </script>
-    </head>
-    <body>
-
-        <button id="test" >Testing</button>
-
-    </body>
 </html>
