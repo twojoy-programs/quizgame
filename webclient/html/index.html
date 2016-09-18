@@ -9,13 +9,18 @@
 					$("#test").click(function(){
 							var ID = 100;
 							$.ajax({
-											type: 'POST',
-											url: '../../cgi-bin/get-configs.pl',
-											data: { 'data_id': ID },
-											success: function(res) {
-												$("#mybox").html(res);
-											},
-											error: function() {alert("did not work");}
+								type: 'POST',
+								url: '../../cgi-bin/get-configs.pl',
+								data: { 'data_id': ID },
+
+								success: function(res) {
+									alert("test");
+									$("#mybox").html(res);
+								},
+
+								error: function() {
+									alert("did not work");
+								}
 							});
 					})
 			})
