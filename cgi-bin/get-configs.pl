@@ -42,10 +42,10 @@ use File::Spec::Functions qw(rel2abs);
 use File::Basename;
 use CGI;
 
-my %configs   = (key => "value");
-my $j         = JSON->new->allow_nonref;
-my $finaljson = $j->encode(%configs);
+my $configs   = {key => "value"};
+my $j         = JSON->new->utf8(1)->pretty(1);
+my $finaljson = $j->encode($configs);
 
-print "Content-Type: text/plain\n\n";
+print "Content-Type: text/plain;charset=UTF-8\n\n";
 print "$finaljson";
 exit(0);
