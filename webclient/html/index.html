@@ -7,24 +7,25 @@
 		<script>
 			$(document).ready(function() {
 					$("#test").click(function(){
-							var ID = 100;
-							$.ajax({
-								type: 'POST',
-								url: '../../cgi-bin/get-configs.pl',
-								data: { 'data_id': ID },
+						alert("test");
+						var ID = 100;
+						$.ajax({
+							type: 'POST',
+							url: '../../cgi-bin/get-configs.pl',
+							data: { 'data_id': ID },
 
-								success: function(res) {
-									alert("test");
-									$("#mybox").html(res);
-								},
+							success: function(res) {
+								alert("test");
+								$("#mybox").html(res);
+							},
 
-								error: function() {
-									alert("did not work");
-								}
-							});
-					})
-			})
-			</script>
+							error: function(x,y) {
+								alert("did not work");
+							}
+						});
+				})
+		})
+		</script>
 
 		<style type="text/css">
 			 #mybox {
@@ -39,7 +40,7 @@
 	<body>
 
 		The following div will be updated after the call:<br />
-		<div id="mybox"></div>
+		<div id="mybox"/>
 		<button id="test">Testing</button>
 		<button id="printConfig">Print Config</button>
 

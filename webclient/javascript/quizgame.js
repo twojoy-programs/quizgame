@@ -14,6 +14,6 @@ var request = $.ajax({
 request.done(function(res) {
   $("#mybox").html(res);
 };
-request.fail(function() {
+request.fail(function(x,y) {
   $("#mybox").html("did not work");
 };
