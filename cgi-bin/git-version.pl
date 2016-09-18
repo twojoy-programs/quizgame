@@ -35,10 +35,10 @@ use warnings;
 use utf8;
 use v5.14;
 
+use CGI::Carp qw(fatalsToBrowser);
 use File::ReadBackwards;
 use File::Spec::Functions qw(rel2abs);
 use File::Basename;
-use CGI::Carp qw(fatalsToBrowser);
 
 sub tail
 {
