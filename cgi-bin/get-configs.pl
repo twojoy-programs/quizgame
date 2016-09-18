@@ -48,4 +48,4 @@ my $finaljson = $j->encode(%configs);
 
 print "Content-Type: text/plain\n\n";
 print "$finaljson";
-exit(0)
+exit(0);
