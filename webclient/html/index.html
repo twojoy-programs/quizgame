@@ -3,23 +3,29 @@
 	<head>
 		<title>Quiz Game!</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../javascript/quizgame.js"></script>
 		<script>
 			$(document).ready(function() {
 					$("#test").click(function(){
-							var ID = 100;
-							$.ajax({
-											type: 'POST',
-											url: '../../cgi-bin/get-configs.pl',
-											data: { 'data_id': ID },
-											success: function(res) {
-												$("#mybox").html(res);
-											},
-											error: function() {alert("did not work");}
-							});
-					})
-					$
-			})
-			</script>
+						alert("test");
+						var ID = 100;
+						$.ajax({
+							type: 'POST',
+							url: '../../cgi-bin/get-configs.pl',
+							data: { 'data_id': ID },
+
+							success: function(res) {
+								alert("test");
+								$("#mybox").html(res);
+							},
+
+							error: function(x,y) {
+								alert("did not work");
+							}
+						});
+				})
+		})
+		</script>
 
 		<style type="text/css">
 			 #mybox {
@@ -34,8 +40,9 @@
 	<body>
 
 		The following div will be updated after the call:<br />
-		<div id="mybox"></div>
+		<div id="mybox"> </div>
 		<button id="test">Testing</button>
+		<button id="printConfig">Print Config</button>
 
 	</body>
 
