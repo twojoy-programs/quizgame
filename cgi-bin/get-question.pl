@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # Gets questions, translates them to JSON, and sends them on their way.
-# 
+#
 '
 Copyright (c) 2016, twojoy-programs
 All rights reserved.
@@ -41,3 +41,52 @@ use JSON;
 use File::Spec::Functions qw(rel2abs);
 use File::Basename;
 use CGI;
+use Time::Piece;
+
+my $config = dirname(rel2abs($0)) . "/../data/config.yaml";
+
+my $q          = CGI->new;
+my $inpnum     = $q->param('foo');
+my $configfh;
+my $rawconfig;
+my $rawqfile;
+my $qfilehandle;
+
+open($configfh, "<", $config);
+{ # Slurp data
+    local $/;
+    $rawconfig = <$configfh>;
+}
+my $configs = Load($rawconfig); # Outputs a hashref.
+
+my $qfilepath = dirname(rel2abs($0)) . $configs{"quizfilepath"};
+open($qfilehandle, "<", $qfilepath);
+{ # Slurp data
+    local $/;
+    $rawqfile = <$qfilehandle>;
+}
+my $questions = Load($rawqfile); # Outputs an arrayref.
+my $qnumber;
+
+if(not defined($inpnum))
+{
+  my $count   = scalar($questions);
+  $qnumber  = int(rand($count));
+}
+else
+{
+  $qnumber = $inpnum;
+}
+my %question = $questions[$qnumber];
+if(not defined(%question))
+{
+  $question{"error"} = "Question not found.";
+}
+$question{"requesttimee"} = gmtime->strftime();
+$question{"qfiletime"}    = undef; # Undef for now.
+
+
+my $finaljson = $j->encode($question);
+
+print "Content-Type: text/plain;charset=UTF-8\n\n";
+print "$finaljson";
