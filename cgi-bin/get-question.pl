@@ -87,6 +87,7 @@ if(not $questions[$qnumber])
 }
 $question{"requesttimee"} = gmtime->strftime();
 $question{"qfiletime"}    = undef; # Undef for now.
+$question{"id"}           = $qnumber;
 
 
 my $finaljson = $j->encode($question);
