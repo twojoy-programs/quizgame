@@ -91,9 +91,9 @@ $question{"requesttimee"}  = gmtime->strftime();
 $question{"qfiletime"}     = undef; # Undef for now.
 $question{"id"}            = $qnumber;
 $question{"session-id"}    = int(rand(65537));
-$question{"correctanswr"}  = "" unless $configs{"passanswer"};
+$question{"correctanswr"}  = "" unless $configs{"srvsidescore"};
 
-if(!$configs{"passanswer"} and !$question{"status"})
+if(!$configs{"srvsidescore"} and !$question{"status"})
 {
   $question{"status"}      = 1;
   $question{"message"}     = "
