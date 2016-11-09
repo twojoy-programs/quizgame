@@ -1,6 +1,6 @@
 #!/usr/bin/perl
-# Short 2-line description
-# goes here.
+# CGI Script that lets the javascript client access
+# configuration info as JSON.
 '
 Copyright (c) 2016, twojoy-programs
 All rights reserved.
