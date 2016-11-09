@@ -36,7 +36,7 @@ no  warnings qw(void experimental);
 use utf8;
 use v5.14;
 
-use CGI::Carp qw(fatalsToBrowser);
+#use CGI::Carp qw(fatalsToBrowser);
 use YAML;
 use JSON;
 use File::Spec::Functions qw(rel2abs);
@@ -91,7 +91,7 @@ $question{"id"}           = $qnumber;
 $question{"session-id"}   = int(rand(65537));
 
 
-my $finaljson = $j->encode($question);
+my $finaljson = $j->encode(\%question);
 
 print "Content-Type: text/plain;charset=UTF-8\n\n";
 print "$finaljson";
