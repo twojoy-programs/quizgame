@@ -87,10 +87,25 @@ if(not $questions[$qnumber])
   $question{"status"}    += 2;
   $question{"message"}    = "Question not found.";
 }
-$question{"requesttimee"} = gmtime->strftime();
-$question{"qfiletime"}    = undef; # Undef for now.
-$question{"id"}           = $qnumber;
-$question{"session-id"}   = int(rand(65537));
+$question{"requesttimee"}  = gmtime->strftime();
+$question{"qfiletime"}     = undef; # Undef for now.
+$question{"id"}            = $qnumber;
+$question{"session-id"}    = int(rand(65537));
+$question{"correctanswr"}  = "" unless $configs{"passanswer"};
+
+if(!$configs{"passanswer"} and !$question{"status"})
+{
+  $question{"status"}      = 1;
+  $question{"message"}     = "
+  Doing score and question logic on the server side
+  is currently unsupported.";
+}
+if(!$configs{"scrambleq"} and !$question{"status"})
+{
+  $question{"status"}      = 1;
+  $question{"message"}     = "
+  Scrambling question order is currently unsupported.";
+}
 
 my $finaljson = $j->encode(\%question);
 
