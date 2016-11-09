@@ -51,6 +51,7 @@ open($configfh, "<", $configfile);
     local $/;
     $rawconfig = <$configfh>;
 }
+close($configfh);
 my $configs   = Load($rawconfig); # Outputs a hashref.
 my $finaljson = $j->encode($configs);
 
