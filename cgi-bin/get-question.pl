@@ -32,6 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ';
 use strict;
 use warnings;
+no  warnings qw(void experimental);
 use utf8;
 use v5.14;
 
@@ -42,7 +43,7 @@ use File::Spec::Functions qw(rel2abs);
 use File::Basename;
 use CGI;
 use Time::Piece;
-
+use Data::Dumper;
 
 my $config = dirname(rel2abs($0)) . "/../data/config.yaml";
 
