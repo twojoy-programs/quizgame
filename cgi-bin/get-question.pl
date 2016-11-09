@@ -43,42 +43,44 @@ use File::Basename;
 use CGI;
 use Time::Piece;
 
+
 my $config = dirname(rel2abs($0)) . "/../data/config.yaml";
 
 my $q          = CGI->new;
 my $inpnum     = $q->param('foo');
+my $j          = JSON->new->utf8(1)->pretty(1);
 my $configfh;
 my $rawconfig;
 my $rawqfile;
 my $qfilehandle;
 
-open($configfh, "<", $config);
+open($configfh, "<", $config) or die "Can't open config: $!";
 { # Slurp data
     local $/;
     $rawconfig = <$configfh>;
 }
 my $configs = Load($rawconfig); # Outputs a hashref.
 
-my $qfilepath = dirname(rel2abs($0)) . $configs{"quizfilepath"};
-open($qfilehandle, "<", $qfilepath);
+my $qfilepath = dirname(rel2abs($0)) . $configs->{"quizfilepath"};
+open($qfilehandle, "<", $qfilepath) or die "Can't open qfile: $!";;
 { # Slurp data
     local $/;
     $rawqfile = <$qfilehandle>;
 }
-my $questions = Load($rawqfile); # Outputs an arrayref.
-my $qnumber;
+my @questions = @{(Load($rawqfile))}; # Outputs an arrayref.
 
+my $qnumber;
 if(not defined($inpnum))
 {
-  my $count   = scalar($questions);
-  $qnumber  = int(rand($count));
+  my $count   = scalar(@questions);
+  $qnumber    = int(rand($count));
 }
 else
 {
   $qnumber = $inpnum;
 }
-my %question = $questions[$qnumber];
-if(not defined(%question))
+my %question = %{$questions[$qnumber]};
+if(not $questions[$qnumber])
 {
   $question{"error"} = "Question not found.";
 }
