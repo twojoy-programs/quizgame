@@ -60,7 +60,7 @@ open($configfh, "<", $config) or die "Can't open config: $!";
     $rawconfig = <$configfh>;
 }
 my $configs = Load($rawconfig); # Outputs a hashref.
-
+close($configfh);
 my $qfilepath = dirname(rel2abs($0)) . $configs->{"quizfilepath"};
 open($qfilehandle, "<", $qfilepath) or die "Can't open qfile: $!";;
 { # Slurp data
@@ -68,7 +68,7 @@ open($qfilehandle, "<", $qfilepath) or die "Can't open qfile: $!";;
     $rawqfile = <$qfilehandle>;
 }
 my @questions = @{(Load($rawqfile))}; # Outputs an arrayref.
-
+close($qfilehandle);
 my $qnumber;
 if(not defined($inpnum))
 {
