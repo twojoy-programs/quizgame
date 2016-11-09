@@ -48,7 +48,7 @@ use Data::Dumper;
 my $config = dirname(rel2abs($0)) . "/../data/config.yaml";
 
 my $q          = CGI->new;
-my $inpnum     = $q->param('foo');
+my $inpnum     = $q->param("qnum");
 my $j          = JSON->new->utf8(1)->pretty(1);
 my $configfh;
 my $rawconfig;
