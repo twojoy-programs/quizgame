@@ -60,9 +60,9 @@ open($configfh, "<", $config) or die "Can't open config: $!";
     local $/;
     $rawconfig = <$configfh>;
 }
-my $configs = Load($rawconfig); # Outputs a hashref.
+my $configs = %{(Load($rawconfig))}; # Outputs a hashref.
 close($configfh);
-my $qfilepath = dirname(rel2abs($0)) . $configs->{"quizfilepath"};
+my $qfilepath = dirname(rel2abs($0)) . $configs{"quizfilepath"};
 open($qfilehandle, "<", $qfilepath) or die "Can't open qfile: $!";;
 { # Slurp data
     local $/;
@@ -89,6 +89,7 @@ $question{"requesttimee"} = gmtime->strftime();
 $question{"qfiletime"}    = undef; # Undef for now.
 $question{"id"}           = $qnumber;
 $question{"session-id"}   = int(rand(65537));
+
 
 
 my $finaljson = $j->encode(\%question);
