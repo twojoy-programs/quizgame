@@ -57,7 +57,7 @@ sub tail
 }
 # tail() is from http://stackoverflow.com/a/29267540.
 
-sub gitversion()
+sub gitversion
 {
   my $currentdir = dirname(rel2abs($0));
   my $git_dir = "$currentdir/../.git";
