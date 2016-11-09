@@ -81,16 +81,16 @@ else
   $qnumber = $inpnum;
 }
 my %question = %{$questions[$qnumber]};
+$question{"status"}       = 0;
 if(not $questions[$qnumber])
 {
-  $question{"error"} = "Question not found.";
+  $question{"status"}    += 2;
+  $question{"message"}    = "Question not found.";
 }
 $question{"requesttimee"} = gmtime->strftime();
 $question{"qfiletime"}    = undef; # Undef for now.
 $question{"id"}           = $qnumber;
 $question{"session-id"}   = int(rand(65537));
-
-
 
 my $finaljson = $j->encode(\%question);
 
