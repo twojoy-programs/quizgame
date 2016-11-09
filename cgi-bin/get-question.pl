@@ -45,7 +45,7 @@ use CGI;
 use Time::Piece;
 use Data::Dumper;
 
-my $config = dirname(rel2abs($0)) . "/../data/config.yaml";
+my $config = dirname(rel2abs($0)) . "/../conf/config.yaml";
 
 my $q          = CGI->new;
 my $inpnum     = $q->param("qnum");

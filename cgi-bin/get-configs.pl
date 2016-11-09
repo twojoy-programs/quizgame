@@ -44,7 +44,7 @@ use File::Basename;
 my $j         = JSON->new->utf8(1)->pretty(1);
 my $configfh;
 my $rawconfig;
-my $configfile = dirname(rel2abs($0)) . "/../data/config.yaml";
+my $configfile = dirname(rel2abs($0)) . "/../conf/config.yaml";
 
 open($configfh, "<", $configfile);
 { # Slurp data
