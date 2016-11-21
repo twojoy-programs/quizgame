@@ -5,7 +5,7 @@
 // - request questions from cgi-bin/get-question.pl
 // - accept player answer input and verify correctness
 // - keep a running total of correct answers per game and per player
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 var request = $.ajax({
         type: 'GET',

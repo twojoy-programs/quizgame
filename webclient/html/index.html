@@ -7,7 +7,6 @@
 		<script>
 			$(document).ready(function() {
 					$("#test").click(function(){
-						alert("test");
 						var ID = 100;
 						$.ajax({
 							type: 'POST',
@@ -15,7 +14,6 @@
 							data: { 'data_id': ID },
 
 							success: function(res) {
-								alert("test");
 								$("#mybox").html(res);
 							},
 
