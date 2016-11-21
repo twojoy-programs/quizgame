@@ -60,7 +60,7 @@ open($configfh, "<", $config) or die "Can't open config: $!";
     local $/;
     $rawconfig = <$configfh>;
 }
-my $configs = %{(Load($rawconfig))}; # Outputs a hashref.
+my %configs = %{(Load($rawconfig))}; # Outputs a hashref.
 close($configfh);
 my $qfilepath = dirname(rel2abs($0)) . $configs{"quizfilepath"};
 open($qfilehandle, "<", $qfilepath) or die "Can't open qfile: $!";;
@@ -90,17 +90,17 @@ if(not $questions[$qnumber])
 $question{"requesttimee"}  = gmtime->strftime();
 $question{"qfiletime"}     = undef; # Undef for now.
 $question{"id"}            = $qnumber;
-$question{"session-id"}    = int(rand(65537));
+$question{"session-id"}    = int(rand(65535));
 $question{"correctanswr"}  = "" unless $configs{"srvsidescore"};
 
-if(!$configs{"srvsidescore"} and !$question{"status"})
+if($configs{"srvsidescore"} and !$question{"status"})
 {
   $question{"status"}      = 1;
   $question{"message"}     = "
   Doing score and question logic on the server side
   is currently unsupported.";
 }
-if(!$configs{"scrambleq"} and !$question{"status"})
+if($configs{"scrambleq"} and !$question{"status"})
 {
   $question{"status"}      = 1;
   $question{"message"}     = "
