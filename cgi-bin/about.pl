@@ -35,7 +35,8 @@ use warnings;
 use utf8;
 use v5.14;
 
-use CGI::Carp qw(fatalsToBrowser);
+#use CGI::Carp qw(fatalsToBrowser);
+use YAML;
 use HTML::Template;
 use File::ReadBackwards;
 use File::Spec::Functions qw(rel2abs);
@@ -66,3 +67,23 @@ sub gitversion
   my $output = substr($lastcommit_split[1], 0, 6);
   return $output;
 }
+my $configfh;
+my $rawconfig;
+my $configfile = dirname(rel2abs($0)) . "/../conf/config.yaml";
+
+open($configfh, "<", $configfile);
+{ # Slurp data
+    local $/;
+    $rawconfig = <$configfh>;
+}
+close($configfh);
+my %config   = %{(Load($rawconfig))}; # Outputs a hash.
+
+my $tm = HTML::Template->new(filename => dirname(rel2abs($0)) .
+$config{"about-template"});
+$tm->param("revnum"  , gitversion());
+$tm->param("srvscore", $config{"srvsidescore"});
+$tm->param("scrambleq", $config{"scrambleq"});
+
+print "Content-Type: text/html;charset=utf8\n\n";
+print $tm->output . "\n";

@@ -1,3 +1,4 @@
-quizfilepath: /../data/quiz.yaml
-srvsidescore: "0"
-scrambleq:    "0"
+quizfilepath:   "/../data/quiz.yaml"
+srvsidescore:   "0"
+scrambleq:      "0"
+about-template: "/../data/about-template.html"
