@@ -81,9 +81,13 @@ my %config   = %{(Load($rawconfig))}; # Outputs a hash.
 
 my $tm = HTML::Template->new(filename => dirname(rel2abs($0)) .
 $config{"about-template"});
-$tm->param("revnum"  , gitversion());
-$tm->param("srvscore", $config{"srvsidescore"});
-$tm->param("scrambleq", $config{"scrambleq"});
+
+my $srvscore  = $config{"srvsidescore"}?"Yes":"No";
+my $scrambleq = $config{"scrambleq"}   ?"Yes":"No";
+
+$tm->param("revnum"  ,  gitversion());
+$tm->param("srvscore",  $srvscore);
+$tm->param("scrambleq", $scrambleq);
 
 print "Content-Type: text/html;charset=utf8\n\n";
 print $tm->output . "\n";
