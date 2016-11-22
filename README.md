@@ -14,3 +14,13 @@ Perl Dependencies:
 Javascript Dependencies:
 ------------------------
 * [SegmentDisplay](http://www.3quarks.com/en/SegmentDisplay/index.html)
+
+Note:
+-----
+This repository uses submodules. To clone this repository, run
+`
+git clone https://github.com/twojoy-programs/quizgame.git
+cd quizgame
+git submodule init
+git submodule update
+`
