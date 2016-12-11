@@ -18,9 +18,8 @@ Javascript Dependencies:
 Note:
 -----
 This repository uses submodules. To clone this repository, run
-`
-git clone https://github.com/twojoy-programs/quizgame.git
-cd quizgame
-git submodule init
-git submodule update
-`
+
+    git clone https://github.com/twojoy-programs/quizgame.git
+    cd quizgame
+    git submodule init
+    git submodule update
