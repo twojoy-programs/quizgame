@@ -35,12 +35,13 @@ use warnings;
 use utf8;
 use v5.14;
 
-#use CGI::Carp qw(fatalsToBrowser);
+use CGI::Carp qw(fatalsToBrowser);
 use YAML;
 use HTML::Template;
 use File::ReadBackwards;
 use File::Spec::Functions qw(rel2abs);
 use File::Basename;
+use Config;
 
 sub tail
 {
@@ -85,9 +86,15 @@ $config{"about-template"});
 my $srvscore  = $config{"srvsidescore"}?"Yes":"No";
 my $scrambleq = $config{"scrambleq"}   ?"Yes":"No";
 
-$tm->param("revnum"  ,  gitversion());
-$tm->param("srvscore",  $srvscore);
-$tm->param("scrambleq", $scrambleq);
+$tm->param("revnum",        gitversion());
+$tm->param("srvscore",      $srvscore);
+$tm->param("scrambleq",     $scrambleq);
+$tm->param("showsysconf",   $config{"showsysconfig"});
+$tm->param("pversion",      $Config{"version"});
+$tm->param("oversion",      $Config{"osvers"});
+$tm->param("oname",         $Config{"osname"});
+$tm->param("wsname",        $ENV{"SERVER_NAME"});
+$tm->param("wname",         $ENV{"SERVER_SOFTWARE"});
 
 print "Content-Type: text/html;charset=utf8\n\n";
 print $tm->output . "\n";

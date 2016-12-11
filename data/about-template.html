@@ -12,6 +12,14 @@
   <h3>Configuration Options:</h3>
   Server-Side scorekeeping and processing: <TMPL_VAR NAME=srvscore><br>
   Mixing questions: <TMPL_VAR NAME=scrambleq><br>
+  <TMPL_IF NAME=showsysconf>
+    <h3>System Configuration:</h3>
+    Perl version:       <TMPL_VAR NAME=pversion><br>
+    OS version:         <TMPL_VAR NAME=oversion><br>
+    OS name:            <TMPL_VAR NAME=oname><br>
+    VHost name:         <TMPL_VAR NAME=wsname><br>
+    Web server:         <TMPL_VAR NAME=wname><br>
+  </TMPL_IF>
   <h3>Other Information:</h3>
   QuizGame was written by
   <a href="https://github.com/tuckertwo/">Tucker R. Twomey</a> and
@@ -21,7 +29,7 @@
   <a href="https://en.wikipedia.org/wiki/BSD_licenses#3-clause">3-Clause BSD
     License</a>.
   <br>
-  The <pre>git</pre> repository for quizgame can be found
+  The git repository for quizgame can be found
   <a href="https://github.com/twojoy-programs/quizgame">here.</a>
 </body>
 </html>
