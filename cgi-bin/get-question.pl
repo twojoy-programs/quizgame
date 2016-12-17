@@ -44,6 +44,7 @@ use File::Basename;
 use CGI;
 use Time::Piece;
 use Data::Dumper;
+use Time::HiRes qw(time);
 
 my $config = dirname(rel2abs($0)) . "/../conf/config.yaml";
 
@@ -88,7 +89,7 @@ if(not $questions[$qnumber])
 }
 %question = %{$questions[$qnumber]};
 $question{"status"}        = 0;
-$question{"requesttimee"}  = gmtime->strftime();
+$question{"requesttime"}   = time;
 $question{"answers"}->[0]  = $question{"answer0"};
 $question{"answers"}->[1]  = $question{"answer1"};
 $question{"answers"}->[2]  = $question{"answer2"};
