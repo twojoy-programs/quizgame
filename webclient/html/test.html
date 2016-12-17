@@ -9,6 +9,9 @@
 		<script src="../javascript/quizgame.js"></script>
 		<script>
 			$(document).ready(function() {
+				// first prompt
+				$("#prompt").html("Welcome! Please tell me your name.");
+
 					$("#test").click(function(){
 						var ID = 100;
 						$.ajax({
@@ -34,13 +37,19 @@
 				 height: 250px;
 				 border: 1px solid #999;
 			 }
+			#mybox {
+ 				 width: 300px;
+ 				 height: 250px;
+ 				 border: 1px solid #999;
+ 			 }
 		</style>
 
 	</head>
 
 	<body>
 
-		The following div will be updated after the call:<br />
+		<span id="prompt">The following div will be updated after the calltestetest:</span><br />
+		<input id="input"></input>
 		<div id="mybox"> </div>
 		<button id="test">Testing</button>
 		<button id="printConfig">Print Config</button>
