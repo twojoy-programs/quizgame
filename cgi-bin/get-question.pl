@@ -87,7 +87,14 @@ if(not $questions[$qnumber])
   $question{"status"}    += 2;
   $question{"message"}    = "Question not found.";
 }
+
 $question{"requesttimee"}  = gmtime->strftime();
+$question{"answers"}->[0]  = $question{"answer0"};
+$question{"answers"}->[1]  = $question{"answer1"};
+$question{"answers"}->[2]  = $question{"answer2"};
+$question{"answers"}->[3]  = $question{"answer3"};
+undef $question{"answer0"};  undef $question{"answer1"};
+undef $question{"answer2"};  undef $question{"answer3"};
 $question{"qfiletime"}     = undef; # Undef for now.
 $question{"id"}            = $qnumber;
 $question{"session-id"}    = int(rand(65535));
