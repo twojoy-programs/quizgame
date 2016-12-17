@@ -96,7 +96,10 @@ $question{"answers"}->[2]  = $question{"answer2"};
 $question{"answers"}->[3]  = $question{"answer3"};
 delete $question{"answer0"};  delete $question{"answer1"};
 delete $question{"answer2"};  delete $question{"answer3"};
-$question{"qfiletime"}     = undef; # Undef for now.
+
+$question{"qfiletime"}     =
+stat(dirname(rel2abs($0)) . $configs{"quizfilepath"})[9];
+
 $question{"id"}            = $qnumber;
 $question{"session-id"}    = int(rand(65535));
 $question{"correctanswr"}  = "" if $configs{"srvsidescore"};
