@@ -98,7 +98,7 @@ delete $question{"answer0"};  delete $question{"answer1"};
 delete $question{"answer2"};  delete $question{"answer3"};
 
 $question{"qfiletime"}     =
-stat(dirname(rel2abs($0)) . $configs{"quizfilepath"})[9];
+(stat(dirname(rel2abs($0)) . $configs{"quizfilepath"}))[9];
 
 $question{"id"}            = $qnumber;
 $question{"session-id"}    = int(rand(65535));
