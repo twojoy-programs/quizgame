@@ -28,6 +28,23 @@
 							}
 						});
 				})
+				$("#getQuestion").click(function(){
+					var ID = 100;
+					$.ajax({
+						type: 'POST',
+						url: '../../cgi-bin/get-question.pl',
+						data: { 'data_id': ID },
+
+						success: function(res) {
+							$("#mybox").html(res);
+						},
+
+						error: function(x,y) {
+							alert("did not work");
+						}
+					});
+			})
+
 		})
 		</script>
 
@@ -53,6 +70,7 @@
 		<div id="mybox"> </div>
 		<button id="test">Testing</button>
 		<button id="printConfig">Print Config</button>
+		<button id="getQuestion">Get Question</button>
 
 	</body>
 
