@@ -80,14 +80,13 @@ else
 {
   $qnumber = $inpnum;
 }
-my %question = %{$questions[$qnumber]};
-$question{"status"}       = 0;
 if(not $questions[$qnumber])
 {
   $question{"status"}    += 2;
   $question{"message"}    = "Question not found.";
 }
-
+my %question = %{$questions[$qnumber]};
+$question{"status"}        = 0;
 $question{"requesttimee"}  = gmtime->strftime();
 $question{"answers"}->[0]  = $question{"answer0"};
 $question{"answers"}->[1]  = $question{"answer1"};
