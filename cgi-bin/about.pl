@@ -93,6 +93,8 @@ $tm->param("showsysconf",   $config{"showsysconfig"});
 $tm->param("pversion",      $Config{"version"});
 $tm->param("oversion",      $Config{"osvers"});
 $tm->param("oname",         $Config{"osname"});
+$tm->param("uname",         $Config{"myuname"});
+$tm->param("aname",         $Config{"archname"});
 $tm->param("wsname",        $ENV{"SERVER_NAME"});
 $tm->param("wname",         $ENV{"SERVER_SOFTWARE"});
 
